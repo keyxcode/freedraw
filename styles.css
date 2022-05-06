@@ -1,8 +1,25 @@
 h1 {
     text-align: center;
+    position: relative;
     font-size: 30px;
     padding-top: 30px;
+    animation-name: mymove;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
 }
+
+@keyframes mymove {
+    0% {
+        left: 0%;
+    }
+    25% {
+        left: -30%;
+    }
+    75% {
+        left: 0%;
+    }
+}
+
 .buttons {
     margin: 0 10%;
 }
