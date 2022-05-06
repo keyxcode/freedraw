@@ -2,26 +2,29 @@
 <html>
     <head>
         <script src="https://d3js.org/d3.v4.min.js"></script>
-        <style>
-            html {
-                font-family: sans-serif;
-            }
-            h1 {
-                text-align: center;
-                font-size: 30px;
-            }
-            .buttons {
-                margin: 0 10%;
-            }
-            hr {
-                margin-bottom: 0;
-                opacity: 50%;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <h1>CS50 Beyond Draw</h1>
         <div class="buttons">
+            <select id="color">
+                <option value="black" selected="selected">Black</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+            </select>
+            <select id="width">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected="selected">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
             <input id="erase" value="Erase" type="submit">
             <hr>
         </div>
@@ -32,6 +35,18 @@
         // Select the canvas and set drawing boolean logic
         const svg = d3.select('#svg');
         let drawing = false;
+        let color = document.querySelector("#color").value;
+        let width = document.querySelector("#width").value;
+
+        // Color variable
+        document.querySelector("#color").onchange = () => {
+            color = document.querySelector("#color").value;   
+        }
+
+        // Width variable
+        document.querySelector("#width").onchange = () => {
+            width = document.querySelector("#width").value;   
+        }
 
         // Drawing logic
         function draw_point() {
@@ -43,8 +58,8 @@
             svg.append('circle')
                .attr('cx', coords[0])
                .attr('cy', coords[1])
-               .attr('r', 5)
-               .style('fill', 'black');
+               .attr('r', width)
+               .style('fill', color);
         };
 
         // Detect mouse states
