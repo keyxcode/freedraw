@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .style('fill', color);
 
         // If there was a previous point, connect that and the current point
-        if (pointArray.length > 1) {
+        if (pointArray.length > 0) {
             
             // Get the previous point in the array and pop it
             lastPoint = pointArray.pop();
